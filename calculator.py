@@ -1,6 +1,5 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
-import time 
 class calculator:
     def __init__(self, pos, width, height, value):
         self.pos = pos
