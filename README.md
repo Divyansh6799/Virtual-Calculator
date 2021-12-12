@@ -1,1 +1,1 @@
-# Virtual-Calculator-in-Opencv-python
+# these projects are build in opencv python.
