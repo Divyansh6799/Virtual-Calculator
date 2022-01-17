@@ -1,5 +1,6 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
+import pyttsx3
 class calculator:
     def __init__(self, pos, width, height, value):
         self.pos = pos
@@ -26,7 +27,11 @@ class calculator:
             return True
         else:
             return False
- 
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
+engine.say("please wait! the virtual calculator is starting")
+engine.runAndWait() 
  
 buttons = [['7', '8', '9', 'C'],
                     ['4', '5', '6', '*'],
@@ -54,7 +59,7 @@ while True:
     hands,img = detector.findHands(img)
     for button in buttonList:
         button.drawbutton(img)
- 
+    
     # Check for Hand
     if hands:
         # Find distance between fingers
@@ -68,12 +73,18 @@ while True:
             for i, button in enumerate(buttonList):
                 if button.Click(x, y):
                     myValue = buttons[int(i % 5)][int(i / 5)]  # get correct number
+                    # engine.say(myValue)
+                    # engine.runAndWait() 
                     if myValue == '=':
                         try:
                             Equation = str(eval(Equation))
+                            engine.say(Equation)
+                            engine.runAndWait() 
                         except SyntaxError:
                             print("Syntax Error")
-                            Equation='Syntax Error'
+                            engine.say("Syntax Error")
+                            engine.runAndWait() 
+                            Equation='Syntax Error'       
                     elif Equation=='Syntax Error':
                         Equation=''
                     elif myValue == 'C':
@@ -103,6 +114,6 @@ while True:
                 3, (0, 0, 0), 3)            
     cv2.imshow("Virtual Calculator", img)
     #close the webcam
-    key = cv2.waitKey(1)
-    if key == ord('q'): 
-        break   
+    if cv2.waitKey(10) & 0xFF == ord("q"): 
+        break  
+      
