@@ -78,8 +78,6 @@ while True:
                     if myValue == '=':
                         try:
                             Equation = str(eval(Equation))
-                            engine.say(Equation)
-                            engine.runAndWait() 
                         except SyntaxError:
                             print("Syntax Error")
                             engine.say("Syntax Error")
