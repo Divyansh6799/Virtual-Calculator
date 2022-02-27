@@ -104,10 +104,9 @@ while True:
                   (175, 125, 155), cv2.FILLED)
  
     cv2.rectangle(img, (700, 20), (1100, 100),
-                  (50, 50, 50), 3)
+                  (50, 50, 50), 3)        
     cv2.putText(img, Equation, (710, 80),cv2.FONT_HERSHEY_PLAIN,
                 3, (0, 0, 0), 3)
-
     cv2.putText(img, 'VIRTUAL CALCULATOR -->', (50, 50), cv2.FONT_HERSHEY_PLAIN,
                 3, (0, 0, 0), 3)            
     cv2.imshow("Virtual Calculator", img)
