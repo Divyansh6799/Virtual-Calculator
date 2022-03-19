@@ -1,4 +1,4 @@
 opencv-python==4.5.4.60
 mediapipe==0.8.8
 pyttsx3==2.90
-cvzone=1.5.0
+cvzone==1.5.0
