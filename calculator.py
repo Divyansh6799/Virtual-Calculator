@@ -49,8 +49,8 @@ Equation = ''
 Counter = 0
 # Webcam
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-cap.set(3,1080)
-cap.set(4,780)
+cap.set(3,1280)
+cap.set(4,1080)
 detector = HandDetector(detectionCon=0.9, maxHands=1)
  
 while True:
@@ -110,6 +110,7 @@ while True:
     cv2.putText(img, 'VIRTUAL CALCULATOR -->', (50, 50), cv2.FONT_HERSHEY_PLAIN,
                 3, (0, 0, 0), 3)            
     cv2.imshow("Virtual Calculator", img)
+    cv2.moveWindow("Virtual Calculator", 0,0)
     #close the webcam
     if cv2.waitKey(10) & 0xFF == ord("q"): 
         break  
